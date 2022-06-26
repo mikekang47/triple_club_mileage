@@ -5,10 +5,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -16,10 +13,13 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "REVEIW")
+@Table(name = "REVIEW")
 public class Review {
     @Id
-    @Column(name = "ID", nullable = false)
+    @Column(name = "REVIEW_ID", nullable = false)
     private UUID id;
 
+    @ManyToOne
+    @JoinColumn(name = "PLACE_ID", insertable = false, updatable = false)
+    private Place place;
 }
