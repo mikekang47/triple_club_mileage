@@ -1,15 +1,19 @@
 package com.sihookang.triple_club_mileage.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Getter
 @Setter
 @Entity
+@Table(name = "MILEAGE")
 public class Mileage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +23,8 @@ public class Mileage {
     @Column(name = "action")
     private String action;
 
-
+    @OneToOne
+    @JoinColumn(name = "REVIEW_ID")
+    private Review review;
 
 }
