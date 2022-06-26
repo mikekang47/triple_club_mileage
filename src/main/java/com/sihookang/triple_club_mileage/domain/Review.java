@@ -23,6 +23,10 @@ public class Review {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "PLACE_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "PLACE_ID")
     private Place place;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private User user;
 }
