@@ -19,6 +19,9 @@ public class Review {
     @Column(name = "REVIEW_ID", nullable = false)
     private UUID id;
 
+    @Column(name = "CONTENT")
+    private String content;
+
     @ManyToOne
     @JoinColumn(name = "PLACE_ID", insertable = false, updatable = false)
     private Place place;
